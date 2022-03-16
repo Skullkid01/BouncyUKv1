@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>@ViewBag.Title - Bouncy UK</title>
+    <link rel=" stylesheet" href="~/Content/Background.css" />
+    <link rel=" shortcut icon" type="image/jpg" href="~/Content/castle.jfif" />
+    <link href="~/Content/Bounce.css" rel="stylesheet" type="text/css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+        }
+
+            .navbar a {
+                float: left;
+                font-size: 16px;
+                color: white;
+                text-align: center;
+                padding: 30px 30px;
+                text-decoration: none;
+            }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+            .dropdown .dropbtn {
+                font-size: 16px;
+                border: none;
+                outline: none;
+                color: white;
+                padding: 30px 30px;
+                background-color: inherit;
+                font-family: inherit;
+                margin: 0;
+            }
+
+            .navbar a:hover, .dropdown:hover .dropbtn {
+                background-color: Highlight;
+            }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+            .dropdown-content a {
+                float: none;
+                color: black;
+                padding: 12px 16px;
+                text-decoration: none;
+                display: block;
+                text-align: left;
+            }
+
+                .dropdown-content a:hover {
+                    background-color: #ddd;
+                }
+
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .myDiv{
+            border: 6px  blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="myDiv">
+        <div style="text-align:center">
+            <div id="title_wrapper">
+                <div id="text" style="font-size : 100px">
+                    <i><img src="~/Content/Images/jump2.png" width="200" height="200"></i> <i>B</i><i>o</i><i>u</i><i>n</i><i>c</i><i>y</i>
+                    <i>U</i><i>K</i><i><img src="~/Content/Images/jump1.png" width="250" height="250"></i>
+                </div>
+            </div>
+        </div>
+        <div class="navbar">
+            <a class="navbar-brand" style="cursor:pointer" onclick="@("window.location.href='" + @Url.Action("Home", "UserAccounts") + "'");"><center><img src="~/Content/Images/castle.png" height="90" width="90"></center></a>
+
+
+
+            <a href=@Url.Action("Home", "UserAccounts")>Home</a>
+            <a href=@Url.Action("ProductPage", "Products")>All Bouncy UK Castles</a>
+            <a href=@Url.Action("About", "UserAccounts")>About Bouncy UK</a>
+            <a href=@Url.Action("ContactUs", "UserAccounts")>Contact Us</a>
+
+            @if (Session["Username"] == null)
+            {
+
+                <a href=@Url.Action("Login","UserAccounts")>Login</a>
+                <a href=@Url.Action("Register", "UserAccounts")>Register</a>
+            }
+
+            @if (Session["Username"] != null)
+            {
+                <a href=@Url.Action("Logout","UserAccounts")>LogOut</a>
+            }
+
+
+            @if (Session["Username"] != null)
+            {
+                <a href=@Url.Action("LoggedIn","UserAccounts")>My Account : @Session["Username"].ToString().ToUpper()</a>
+            }
+
+
+            @*<a><div id="status" style="text-align:center"><h4><span style="color:blue ">Network Status :CONNECTED</span></h4></div></a>*@
+
+        </div>
+        <div class="container body-content">
+            @RenderBody()
+            <hr />
+            <footer>
+                <h3><font color="blue">&copy; 2021-Bouncy UK</font></h3>
+            </footer>
+        </div>
+
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+        @RenderSection("stripe", required: false)
+        @*<script>
+                function updateOnlineStatus() {
+                    document.getElementById("status").innerHTML = "<span style=\"color:green\">" + " Network Status → INTERNET CONNECTION" + "</span>";
+                }
+
+                function updateOfflineStatus() {
+                    document.getElementById("status").innerHTML = "<span style=\"color:red\">" + " Network Status → NO INTERNET CONNECTION" + "</span>";
+                }
+                window.addEventListener('online', updateOnlineStatus);
+                window.addEventListener('offline', updateOfflineStatus);
+            </script>*@
+    </div>
+</body>
+
+</html>

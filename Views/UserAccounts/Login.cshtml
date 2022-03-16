@@ -1,0 +1,70 @@
+﻿@model BouncyUKv1.Models.UserAccount
+@{
+    ViewBag.Title = "Login";
+
+}
+
+<style>
+    .myDiv{
+        border: 5px outset blue;
+        background-color: white;
+    }
+</style>
+<fieldset>
+
+    <div class="myDiv">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+
+
+
+            <div class="form-horizontal">
+
+                <hr />
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UName, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off" , @placeholder="Enter Username" } })
+                        @Html.ValidationMessageFor(model => model.UName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", OnAuthenticate = "OnAuthenticate" , @placeholder = "Enter Password" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Login" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</fieldset>
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+            window.onload = function () {
+                alert("@ViewBag.Message");
+        };
+    </script>
+}
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

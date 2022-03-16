@@ -1,0 +1,69 @@
+﻿@model IEnumerable<BouncyUKv1.Models.UserAccount>
+
+@{
+    ViewBag.Title = "All Users";
+}
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: white;
+    }
+</style>
+<center><h2>All Users - Bouncy UK System</h2></center>
+@using (Html.BeginForm("AllUsers", "UserAccounts", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div class="myDiv">
+        <table align="center">
+
+            <tr>
+
+                <td>
+                    @Html.TextBox("CustomerName", null, new { @class = "form-control", @autocomplete = "off", placeholder = "Search" })
+                </td>
+                <td>
+                    <input type="submit" value="Search" class="btn btn-primary btn-sm"> <input type="button" class="btn btn-primary btn-sm" value="Clear" onclick="location.href='@Url.Action("AllUsers", "UserAccounts")'" />
+                </td>
+
+            </tr>
+        </table>
+        <br />
+        <br />
+        <br />
+        <table class="table table-bordered table-responsive table-hover">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.CName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CSurname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.UName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CSurname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UName)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+}

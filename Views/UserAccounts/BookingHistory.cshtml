@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BouncyUKv1.Models.Book>
+@{
+    ViewBag.Title = "Booking History";
+}
+<center>
+    <div class="myDiv">
+        @if (Session["ClientID"] != null)
+        {
+
+            <h4>Booking History : @Session["Username"].ToString().ToUpper()</h4>
+
+        }
+    </div>
+</center>
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: white;
+    }
+</style>
+<div class="myDiv">
+    <table class="table table-bordered table-responsive table-hover">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DeliverAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostalCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PayMtd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Refer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookingDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DeliverAddress)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PostalCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cell)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PayMtd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Refer)
+        </td>
+        <td>
+            £ @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+
+
+    </tr>
+        }
+
+
+    </table>
+</div>

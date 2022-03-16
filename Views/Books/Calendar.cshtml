@@ -1,0 +1,45 @@
+﻿
+@{
+    ViewBag.Title = "Calendar";
+}
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: white;
+    }
+</style>
+<center><h2><font color="white">Bouncy UK Scheduler</font></h2></center>
+    <div class="myDiv">
+
+        <div ng-app="myApp" ng-controller="myNgController">
+            <div class="row">
+                <div class="col-md-8">
+                    <div id="calendar" ui-calendar="uiConfig.calendar" ng-model="eventSources" calendar="myCalendar"></div>
+                </div>
+                <div class="col-md-4">
+                    <div ng-show="SelectedEvent" class="alert alert-success" style="margin-top:50px">
+                        <h2 style="margin-top:0px"> Selected Booking:</h2>
+                        <h3 style="color:#A9A50E"><font color=" blue">Customer:</font>{{SelectedEvent.title}}</h3>
+                        @*<p><font color=" blue">Booking Reference :</font>{{SelectedEvent.BookRef}}</p>*@
+                        <p><font color=" blue">Castle Booked:</font>{{SelectedEvent.Reference}}</p>
+                        <p><font color=" blue">Customer Address:</font>{{SelectedEvent.Address}}</p>
+                        <p><font color=" blue">Postal Code :</font>{{SelectedEvent.Postal}}</p>
+                        <p><font color=" blue">Date Of Booking:</font>{{SelectedEvent.date| date}}</p>
+                        <p><font color=" blue">Time Of Booking:</font>{{SelectedEvent.Time | date:'mediumTime'}}</p>
+                        <p><font color=" blue">Customer Contact:</font>{{SelectedEvent.Cell}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <link href="~/Content/fullcalendar.css" rel="stylesheet" />
+
+        <script src="~/Scripts/moment.js"></script>
+        <script src="~/Scripts/jquery-1.11.3.js"></script>
+        <script src="~/Scripts/angular.js"></script>
+        <script src="~/Scripts/calendar.js"></script>
+        <script src="~/Scripts/fullcalendar.js"></script>
+        <script src="~/Scripts/gcal.js"></script>
+
+        <script src="~/Scripts/MyApp2.js"></script>
+    </div>

@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="weatherForecastWidget"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.13.0/d3.min.js"></script>
+<link rel="stylesheet" href="https://www.visualcrossing.com/widgets/forecast/weather-forecast-widget-d3.css">
+<script>
+    window.weatherWidgetConfig = window.weatherWidgetConfig || [];
+    window.weatherWidgetConfig.push({
+        selector: ".weatherForecastWidget",
+        apiKey: "NUUCXZCKBZMFWKEZTA7PEYJX4",
+        location: "England",
+        unitGroup: "us"
+    });
+    (function () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://www.visualcrossing.com/widgets/forecast/weather-forecast-widget-d3.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<center><h1><font color="blue">WELCOME TO BOUNCY UK </font></h1></center>
+<html>
+
+<head>
+    <title>Weather Forecast</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="text/html; charset=iso-8859-2" http-equiv="Content-Type">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+        .Slides {
+            display: none;
+        }
+
+        .myDiv {
+            border: 5px outset blue;
+            background-color: white;
+            text-align: center;
+    </style>
+
+
+
+</head>
+
+
+
+<body>
+
+    <div class="myDiv">
+        <p>
+            Bouncy UK are the inflatable party experts for bouncy castle hire and event entertainment in the UK.We deliver the highest quality safety tested inflatables across the UK.For bouncy castles, soft play, inflatable slides , Bouncy UK provide superior service and products in the name of having a great time.
+        </p>
+    </div>
+
+    <center>
+
+        <div class="w3-content w3-section" style="max-width:800px">
+            <img class="Slides" src="~/Content/Images/BH1.jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/Boy1.jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/Girl.jpg" style="width:100%">
+            <img class="Slides" src="~/Content/Images/Girl1.jpg" style="width:100%">
+            <img class="Slides" src="~/Content/Images/SP1.jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/SP2.jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/download.jfif" style="width:100% ">
+            <img class="Slides" src="~/Content/Images/download (1).jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/download (2).jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/download (3).jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/download (4).jfif" style="width:100%">
+            <img class="Slides" src="~/Content/Images/download (5).jfif" style="width:100%">
+        </div>
+    </center>
+
+    <script>
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("Slides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 3000);
+        }
+    </script>
+
+</body>
+</html>
+

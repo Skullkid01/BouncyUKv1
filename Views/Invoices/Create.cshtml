@@ -1,0 +1,67 @@
+﻿@model BouncyUKv1.Models.Invoice
+
+@{
+    ViewBag.Title = "Email Invoice";
+}
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: black;
+    }
+</style>
+<div class="myDiv">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <center><font color="white"><h2>Readable Content</h2></font></center>
+        <hr />
+   
+        <dl class="dl-horizontal">
+                <dt>
+                    <font color="white">   Using Email : </font>
+                </dt>
+                <dd> @Html.TextBoxFor(model => model.Email, new { style = "width:200px;", @readonly = "readonly", @Value = Session["Email"] })</dd>
+
+
+
+                <dt>
+                    <font color="white">   Customer Name :</font>
+                </dt>
+                <dd> @Html.TextBoxFor(model => model.Email, new { style = "width:200px;", @readonly = "readonly", @Value = Session["CName"] })</dd>
+
+
+
+
+
+                <dt>
+                    <font color="white">  Customer Surname :</font>
+                </dt>
+                <dd>@Html.TextBoxFor(model => model.Email, new { style = "width:200px;", @readonly = "readonly", @Value = Session["CSurname"] })</dd>
+
+
+
+
+                <dt>
+                    <font color="white">   Payment Method :</font>
+                </dt>
+                <dd>@Html.TextBoxFor(model => model.Email, new { style = "width:200px;", @readonly = "readonly", @Value = Session["PayMtd"] }) </dd>
+
+
+
+                <dt>
+                    <font color="white">    @Html.DisplayNameFor(model => model.TotalAmount)</font>
+                </dt>
+
+                <dd>@Html.TextBoxFor(model => model.Email, new { style = "width:200px;", @readonly = "readonly", @Value = Session["TotalCost"] }) </dd>
+
+
+
+
+        </dl>
+
+        <button type="submit" value="Email PDF Invoice" class="btn btn-primary btn-lg btn-block">Email PDF Invoice</button>
+
+
+    }
+</div>
+

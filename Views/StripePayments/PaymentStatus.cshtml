@@ -1,0 +1,25 @@
+﻿@using BouncyUKv1.Models;
+@model ChargeVM
+@{
+    ViewBag.Title = "Payment Status";
+}
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: greenyellow;
+    }
+</style>
+<center><b><font color="greenyellow" size="100">Payment Successful - @Session["CName"]</font></b></center>
+
+@*<p>@Model.ChargeID</p>*@
+
+
+<script>
+setTimeout(function () {
+    window.location.replace('@Url.Action("Create", "Invoices")')
+}, 4000);
+</script>
+
+
+
+

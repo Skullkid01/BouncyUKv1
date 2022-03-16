@@ -1,0 +1,130 @@
+﻿@using BouncyUKv1.Models;
+@model ChargeVM
+@{
+    ViewBag.Title = "Payment";
+}
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: greenyellow;
+    }
+</style>
+<center><h1><font color="white">Payment</font></h1></center>
+<div class="myDiv">
+<div class="form-group">
+
+    
+    <center> <h2><font color="blue">This Is Your Total : </font> @Html.TextBoxFor(model => model.amt, new { style = "width:1000px; text-align:center; ", @readonly = "readonly", @Value = "£" + Session["TotalCost"] })</h2></center>
+</div>
+    @section stripe{
+
+        <script src="https://js.stripe.com/v3/"></script>
+
+        <script>
+            // Create a Stripe client
+            var stripe = Stripe('pk_test_51IT1kDDNWIB8svWnBiTaEdmOCzr3S9UZA8QDLla5oCVZxcjm0D4V5RCxYiN6ObG42r92NhWIVk8J4v2xbC81WDRX00kTatYaDM');
+
+            // Create an instance of Elements
+            var elements = stripe.elements();
+
+            // Custom styling can be passed to options when creating an Element.
+            // (Note that this demo uses a wider set of styles than the guide below.)
+            var style = {
+                base: {
+                    color: '#32325d',
+                    lineHeight: '18px',
+                    fontFamily: '"Helvetica Neue", Helvetica, sans-serif',
+                    fontSmoothing: 'antialiased',
+                    fontSize: '16px',
+                    '::placeholder': {
+                        color: '#aab7c4'
+                    }
+                },
+                invalid: {
+                    color: '#fa755a',
+                    iconColor: '#fa755a'
+                }
+            };
+
+            // Create an instance of the card Element
+            var card = elements.create('card', { style: style });
+
+            // Add an instance of the card Element into the `card-element` <div>
+            card.mount('#card-element');
+
+            // Handle real-time validation errors from the card Element.
+            card.addEventListener('change', function (event) {
+                var displayError = document.getElementById('card-errors');
+                if (event.error) {
+                    displayError.textContent = event.error.message;
+                } else {
+                    displayError.textContent = '';
+                }
+            });
+
+            // Handle form submission
+            var form = document.getElementById('payment-form');
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+
+                stripe.createToken(card).then(function (result) {
+                    if (result.error) {
+                        // Inform the user if there was an error
+                        var errorElement = document.getElementById('card-errors');
+                        errorElement.textContent = result.error.message;
+                    } else {
+                        // Send the token to your server
+                        stripeTokenHandler(result.token);
+                    }
+                });
+            });
+
+            //Submit the form with token ID.
+            function stripeTokenHandler(token) {
+                //Insert the token ID into the form so it gets submitted to the server
+
+                var form = document.getElementById('payment-form');
+                var hiddenInput = document.createElement('input');
+                hiddenInput.setAttribute('type', 'hidden');
+                hiddenInput.setAttribute('name', 'stripeToken');
+                hiddenInput.setAttribute('value', token.id);
+                form.append(hiddenInput);
+
+                form.submit();
+            }
+        </script>
+
+    }
+
+
+
+    <form action="/stripepayments/Payment" method="post" id="payment-form">
+        @*<div class="form-horizontal">
+                <div class="form-group">
+                    @Html.LabelFor(model => model.amt, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.amt, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.amt, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>*@
+        <div class="form-row">
+            <label for="card-element">
+                Credit or Debit Card
+            </label>
+            <div id="card-element">
+
+            </div>
+            <div id="card-errors" role="alert"></div>
+        </div>
+        <br>
+        <center><input type="submit" value="Pay Now" class="btn btn-success" /></center>
+
+    </form>
+    </div>
+
+
+
+
+
+

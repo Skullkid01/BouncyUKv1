@@ -1,0 +1,245 @@
+﻿#text {
+    text-shadow: 3px 6px 3px rgba(0,0,0,.1);
+    font-size: 30px;
+    font-variant: small-caps;
+    font-family: "Times New Roman", Times, serif;
+    color: #F3661C;
+}
+
+    #text i {
+        position: relative;
+        top: 10px;
+        font-style: normal;
+        -webkit-animation: bounce 1s ease infinite alternate;
+        -moz-animation: bounce 1s ease infinite alternate;
+        animation: bounce 1s ease infinite alternate;
+    }
+
+        #text i:nth-child(1) {
+            -moz-animation-delay: .2s;
+            -webkit-animation-delay: .2s;
+            animation-delay: .2s;
+            color: red;
+            text-shadow: 2px 2px black;
+        }
+
+        #text i:nth-child(2) {
+            -moz-animation-delay: .4s;
+            -webkit-animation-delay: .4s;
+            animation-delay: .4s;
+            color: orange;
+        }
+
+        #text i:nth-child(3) {
+            -moz-animation-delay: .6s;
+            -webkit-animation-delay: .6s;
+            animation-delay: .6s;
+            color: yellow;
+        }
+
+        #text i:nth-child(4) {
+            -moz-animation-delay: .8s;
+            -webkit-animation-delay: .8s;
+            animation-delay: .8s;
+            color: green;
+        }
+
+        #text i:nth-child(5) {
+            -moz-animation-delay: 1s;
+            -webkit-animation-delay: 1s;
+            animation-delay: 1s;
+            color: blue;
+        }
+
+        #text i:nth-child(6) {
+            -moz-animation-delay: 1.2s;
+            -webkit-animation-delay: 1.2s;
+            animation-delay: 1.2s;
+            color: indigo;
+        }
+
+        #text i:nth-child(7) {
+            -moz-animation-delay: 1.4s;
+            -webkit-animation-delay: 1.4s;
+            animation-delay: 1.4s;
+            color: violet;
+        }
+
+        #text i:nth-child(8) {
+            -moz-animation-delay: 1.6s;
+            -webkit-animation-delay: 1.6s;
+            animation-delay: 1.6s;
+            color: red;
+        }
+
+        #text i:nth-child(9) {
+            -moz-animation-delay: 1.8s;
+            -webkit-animation-delay: 1.8s;
+            animation-delay: 1.8s;
+            color: orange;
+        }
+
+        #text i:nth-child(10) {
+            -moz-animation-delay: 2s;
+            -webkit-animation-delay: 2s;
+            animation-delay: 2s;
+            color: yellow;
+        }
+
+        #text i:nth-child(11) {
+            -moz-animation-delay: 2.2s;
+            -webkit-animation-delay: 2.2s;
+            animation-delay: 2.2s;
+            color: green;
+        }
+
+        #text i:nth-child(12) {
+            -moz-animation-delay: 2.4s;
+            -webkit-animation-delay: 2.4s;
+            animation-delay: 2.4s;
+            color: blue;
+        }
+
+        #text i:nth-child(13) {
+            -moz-animation-delay: 2.6s;
+            -webkit-animation-delay: 2.6s;
+            animation-delay: 2.6s;
+            color: indigo;
+        }
+
+        #text i:nth-child(14) {
+            -moz-animation-delay: 2.8s;
+            -webkit-animation-delay: 2.8s;
+            animation-delay: 2.8s;
+            color: violet;
+        }
+
+        #text i:nth-child(15) {
+            -moz-animation-delay: 3s;
+            -webkit-animation-delay: 3s;
+            animation-delay: 3s;
+            color: red;
+        }
+
+        #text i:nth-child(16) {
+            -moz-animation-delay: 3.2s;
+            -webkit-animation-delay: 3.2s;
+            animation-delay: 3.2s;
+            color: orange;
+        }
+
+        #text i:nth-child(17) {
+            -moz-animation-delay: 3.4s;
+            -webkit-animation-delay: 3.4s;
+            animation-delay: 3.4s;
+            color: yellow;
+        }
+
+        #text i:nth-child(18) {
+            -moz-animation-delay: 3.6s;
+            -webkit-animation-delay: 3.6s;
+            animation-delay: 3.6s;
+            color: green;
+        }
+
+        #text i:nth-child(19) {
+            -moz-animation-delay: 3.8s;
+            -webkit-animation-delay: 3.8s;
+            animation-delay: 3.8s;
+            color: blue;
+        }
+
+        #text i:nth-child(20) {
+            -moz-animation-delay: 4s;
+            -webkit-animation-delay: 4s;
+            animation-delay: 4s;
+            color: indigo;
+        }
+
+        #text i:nth-child(21) {
+            -moz-animation-delay: 4.2s;
+            -webkit-animation-delay: 4.2s;
+            animation-delay: 4.2s;
+            color: violet;
+        }
+
+        #text i:nth-child(22) {
+            -moz-animation-delay: 4.4s;
+            -webkit-animation-delay: 4.4s;
+            animation-delay: 4.4s;
+            color: red;
+        }
+
+        #text i:nth-child(23) {
+            -moz-animation-delay: 4.6s;
+            -webkit-animation-delay: 4.6s;
+            animation-delay: 4.6s;
+            color: orange;
+        }
+
+        #text i:nth-child(24) {
+            -moz-animation-delay: 4.8s;
+            -webkit-animation-delay: 4.8s;
+            animation-delay: 4.8s;
+            color: yellow;
+        }
+
+        #text i:nth-child(25) {
+            -moz-animation-delay: 5s;
+            -webkit-animation-delay: 5s;
+            animation-delay: 5s;
+            color: green;
+        }
+
+        #text i:nth-child(26) {
+            -moz-animation-delay: 5.2s;
+            -webkit-animation-delay: 5.2s;
+            animation-delay: 5.2s;
+            color: blue;
+        }
+
+        #text i:nth-child(27) {
+            -moz-animation-delay: 5.4s;
+            -webkit-animation-delay: 5.4s;
+            animation-delay: 5.4s;
+            color: indigo;
+        }
+
+        #text i:nth-child(28) {
+            -moz-animation-delay: 5.6s;
+            -webkit-animation-delay: 5.6s;
+            animation-delay: 5.6s;
+            color: violet;
+        }
+
+        #text i:nth-child(29) {
+            -moz-animation-delay: 5.8s;
+            -webkit-animation-delay: 5.8s;
+            animation-delay: 5.8s;
+            color: red;
+        }
+
+        #text i:nth-child(30) {
+            -moz-animation-delay: 6s;
+            -webkit-animation-delay: 6s;
+            animation-delay: 6s;
+            color: blue;
+        }
+
+@keyframes bounce {
+    100% {
+        top: -10px;
+    }
+}
+
+@-webkit-keyframes bounce {
+    100% {
+        top: -10px;
+    }
+}
+
+@-moz-keyframes bounce {
+    100% {
+        top: -10px;
+    }
+}

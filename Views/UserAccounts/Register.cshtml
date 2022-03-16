@@ -1,0 +1,90 @@
+﻿@model BouncyUKv1.Models.UserAccount
+@{
+    ViewBag.Title = "Register";
+}
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: white;
+    </style>
+<fieldset>
+    <div class="myDiv">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                <hr />
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CName, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", placeholder = " First Name" } })
+                        @Html.ValidationMessageFor(model => model.CName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CSurname, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CSurname, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", placeholder = "Last Name" } })
+                        @Html.ValidationMessageFor(model => model.CSurname, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", placeholder = "Email Address" } })
+                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.UName, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.UName, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", placeholder = "Create Username" } })
+                        @Html.ValidationMessageFor(model => model.UName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", placeholder = "Create Password" } })
+                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.CPassword, new { htmlAttributes = new { @class = "form-control", @autocomplete = "off", placeholder = "Confirm Password" } })
+                        @Html.ValidationMessageFor(model => model.CPassword, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Register" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        }
+        @*<script>
+            setTimeout(function () {
+                window.location.replace('@Url.Action("Login", "UserAccounts")')
+            }, 8000);
+            </script>*@
+        </div>
+</fieldset>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+
+}
+

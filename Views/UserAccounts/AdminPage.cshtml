@@ -1,0 +1,84 @@
+﻿
+@model BouncyUKv1.Models.UserAccount
+
+@{
+    ViewBag.Title = "Admin Dashboard";
+}
+
+<style>
+    .myDiv {
+        border: none;
+        background-color: none;
+    }
+
+    .myDiv5 {
+        border: 5px outset blue;
+        background-color: white;
+    }
+</style>
+<div class="myDiv5">
+    <center><h1><font color="black"> Administrator Dashboard : @Session["Username"].ToString().ToUpper()</font></h1></center>
+</div>
+<br />
+<br />
+<br />
+<div class="myDiv">
+    <center>
+
+        <div class="row">
+
+            <input type="button" value="Bouncy UK Schedule" onclick="@("window.location.href='" + @Url.Action("Calendar", "Books") + "'");" class="btn btn-primary btn-lg btn-block" />
+
+        </div>
+
+        <br />
+        <div class="row">
+
+            <input type="button" value="Add New Product" onclick="@("window.location.href='" + @Url.Action("Create", "Products" ) + "'");" class="btn btn-primary btn-lg btn-block" />
+
+        </div>
+
+        <br />
+
+        <div class="row">
+
+            <input type="button" value="Booking Records" onclick="@("window.location.href='" + @Url.Action("AllBooking", "UserAccounts")  + "'");" class="btn btn-primary btn-lg btn-block" />
+
+        </div>
+
+        <br />
+        <div class="row">
+
+            <input type="button" value="Query Product" onclick="@("window.location.href='" + @Url.Action("CastleReference", "Products") + "'");" class="btn btn-primary btn-lg btn-block" />
+
+        </div>
+
+        <br />
+        <div class="row">
+
+            <input type="button" value="Users on Bouncy UK" onclick="@("window.location.href='" + @Url.Action("AllUsers", "UserAccounts") + "'");" class="btn btn-primary btn-lg btn-block" />
+
+        </div>
+
+        <br />
+
+        <div class="row">
+            <input type="button" value="Invoice Records" onclick="@("window.location.href='" + @Url.Action("Records", "Invoices") + "'");" class="btn btn-primary btn-lg btn-block" />
+        </div>
+
+        <br />
+
+        <div class="row">
+            <input type="button" value="Exit System" onclick="@("window.location.href='" + @Url.Action("Logout", "UserAccounts") + "'");" class="btn btn-primary btn-lg btn-block" />
+        </div>
+
+    </center>
+</div>
+
+
+
+
+
+
+
+

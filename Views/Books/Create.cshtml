@@ -1,0 +1,140 @@
+﻿@model BouncyUKv1.Models.Book
+
+
+@{
+    ViewBag.Title = "Booking";
+}
+<style>
+    .myDiv {
+        border: 5px outset blue;
+        background-color: white;
+</style>
+
+<br>
+<br>
+<fieldset>
+    <div class="myDiv">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-horizontal">
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.BookingDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BookingDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.BookingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PayMtd, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        Cash On Delivery
+                        @Html.RadioButtonFor(model => model.PayMtd, "Cash On Delivery")
+                        <br>
+                        <br>
+                        Online Payment
+                        @Html.RadioButtonFor(model => model.PayMtd, "Online Payment")
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.DeliverAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.DeliverAddress, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Delivery Address" } })
+                        @Html.ValidationMessageFor(model => model.DeliverAddress, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.PostalCode, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PostalCode, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Postal Code" } })
+                        @Html.ValidationMessageFor(model => model.PostalCode, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Cell, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Cell, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Cellphone Number" } })
+                        @Html.ValidationMessageFor(model => model.Cell, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Book" class="btn btn-success" />
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+</fieldset>
+
+@*@if (ViewBag.BMessage != null)
+    {
+        <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("@ViewBag.BMessage");
+                };
+        </script>
+
+    }*@
+@*@if (ViewBag.TMessage != null)
+    {
+        <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("@ViewBag.TMessage");
+                };
+        </script>
+
+    }*@
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+    <script type="text/javascript">
+        google.maps.event.addDomListener(window, 'load', function () {
+            var options = {
+                types: ['(cities)'],
+                componentRestrictions: { country: "uk" }
+            };
+
+            var input = document.getElementById('DeliverAddress');
+            var places = new google.maps.places.Autocomplete(input, options);
+
+        });
+    </script>
+
+}
+
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+                window.onload = function () {
+                    alert("@ViewBag.Message");
+                };
+    </script>
+
+}
+
+
+
+
+

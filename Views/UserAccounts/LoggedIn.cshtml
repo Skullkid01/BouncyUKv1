@@ -1,0 +1,70 @@
+﻿
+@model IEnumerable<BouncyUKv1.Models.UserAccount>
+
+@{
+    ViewBag.Title = "Hello" + "," + Session["Username"].ToString().ToUpper();
+
+}
+<style>
+    .myDiv {
+        border: none;
+        background-color: none;
+    }
+    .myDiv5 {
+        border: 5px outset blue;
+        background-color: white;
+    }
+</style>
+<div class="myDiv5">
+    <center><h1><font color="black"> Customer Dashboard : Hello @Session["Username"].ToString().ToUpper()</font></h1></center>
+</div>
+<br />
+<br />
+<br />
+<div class="myDiv">
+    <center>
+        @foreach (var item in Model)
+
+        {
+
+
+
+
+            <div class="row">
+
+                <input type="button" value="View All Products" onclick="@("window.location.href='" + @Url.Action("ProductPage", "Products") + "'");" class="btn btn-primary btn-lg btn-block" />
+
+            </div>
+
+            <br />
+            <div class="row">
+
+                <input type="button" value="Booking History" onclick="@("window.location.href='" + @Url.Action("BookingHistory", "UserAccounts" , new { id = item.ClientID }) + "'");" class="btn btn-primary btn-lg btn-block" />
+
+            </div>
+
+            <br />
+
+            <div class="row">
+
+                <input type="button" value="Modify Your Details" onclick="@("window.location.href='" + @Url.Action("Modify", "UserAccounts" , new { id = item.ClientID }) + "'");" class="btn btn-primary btn-lg btn-block" />
+
+            </div>
+
+            <br />
+
+        }
+
+    <div class="row">
+
+            <input type="button" value="LogOut" onclick="@("window.location.href='"+ @Url.Action("Logout", "UserAccounts") + "'") ;" class="btn btn-primary btn-lg btn-block" />
+
+    </div>
+    </center>
+</div>
+
+
+
+
+
+
